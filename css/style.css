@@ -13,7 +13,10 @@
     --accent-color:#8d4edf;
     --white-text-color:#f0f0f0;
     --black-text-color:#0f0d12;
+    --error-color:#d93025;
+    --succes-color: #34a853;
  }
+
 
   /* for All */
  body{
@@ -167,14 +170,14 @@ th, td {
 }
 
 .success {
-    color: green;
+    color: var(--succes-color);
     font-weight: bold;
     margin-top: 10px;
     text-align: center;
 }
 
 .error {
-    color: red;
+    color:var(--error-color);
     font-weight: bold;
     margin-top: 10px;
     text-align: center;
