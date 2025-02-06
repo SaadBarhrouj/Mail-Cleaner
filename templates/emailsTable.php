@@ -1,9 +1,20 @@
 <?php
 
+//methode 1:
 function validateEmail($email) {
     $pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
     return preg_match($pattern, $email);
 }
+//methode 2:
+
+function validateEmail_2($email) {
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) !== false) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
 function lire_emails($fichier) {
     $emails_valides = [];

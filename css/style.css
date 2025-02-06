@@ -166,3 +166,17 @@ th, td {
     background-color: var(--primary-color);
 }
 
+.success {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+
+}
