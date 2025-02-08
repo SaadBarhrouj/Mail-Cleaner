@@ -9,11 +9,7 @@ $emails_non_valides = $emails['non_valides'];
 $emails_uniques_valides = array_keys($emails_valides);
 sort($emails_uniques_valides);
 
-$emails_uniques_non_valides = array_values($emails_non_valides);
-sort($emails_uniques_non_valides);
-
 file_put_contents('../data/EmailsT.txt', implode("\n", $emails_uniques_valides));
-file_put_contents('../data/AdressesEmailsNonValides.txt', implode("\n", $emails_uniques_non_valides));
 ?>
 
 <!DOCTYPE html>

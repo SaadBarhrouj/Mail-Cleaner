@@ -10,7 +10,6 @@
 </head>  
 
 <body>
- 
     <section class="cards" >
         <h2 class="title">Gestion des Emails</h2>
         <div class="content">
@@ -51,7 +50,7 @@
             </div>
             <div class="info">
                 <h3>Afficher les Emails par Domaine</h3>
-                <p>Voir toutes les adresses emails validées, triées par domaine, et leur fréquence d'utilisation.</p>
+                <p>Voir toutes les adresses emails validéespar domaine, et leur fréquence d'utilisation.</p>
             </div>
         </div>
 

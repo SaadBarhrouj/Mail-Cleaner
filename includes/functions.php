@@ -1,22 +1,24 @@
 <?php
 
-// Méthode  1 de validation d'email 
+//========================= Methode 1 de validation d'email ==============================
 
 function validateEmail($email) {
     $pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
     return preg_match($pattern, $email);
 }
 
-// Méthode  2 de validation d'email 
+//========================= Methode 2 de validation d'email ================================
 
 function validateEmail_2($email) {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
-// Lire les emails depuis un fichier et les valider
+//========================= Lire les emails depuis un fichier et les valider =================
+
 function lire_emails($fichier) {
     $emails_valides = [];
     $emails_non_valides = [];
+    $all_lines = [];
 
     if (file_exists($fichier)) {
         $lines = file($fichier, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -28,9 +30,14 @@ function lire_emails($fichier) {
                 } else {
                     $emails_non_valides[] = $email;
                 }
+                $all_lines[] = $email;
             }
         }
     }
+
+    file_put_contents($fichier, implode(PHP_EOL, $emails_valides));
+
+    file_put_contents("../data/AdressesEmailsNonValides.txt", implode(PHP_EOL, $emails_non_valides));
 
     return [
         'valides' => array_count_values($emails_valides),
@@ -38,7 +45,8 @@ function lire_emails($fichier) {
     ];
 }
 
-// Fonction pour verifier si un email existe dans la liste des emails valides
+//========================= Fonction pour verifier si un email existe dans la liste des emails valides =================
+
 function email_exist($newEmail, $file) {
     $emails = lire_emails($file);
     $emails_valides = array_keys($emails['valides']);
@@ -50,7 +58,8 @@ function email_exist($newEmail, $file) {
     return false;
 }
 
-// Fonction pour ajouter un email au fichier correspondant
+//========================= Fonction pour ajouter un email au fichier correspondant =================
+
 function ajouter_email($email) {
     if (validateEmail_2($email)) {
         if (email_exist($email, "../data/Emails.txt")) {
@@ -65,8 +74,8 @@ function ajouter_email($email) {
     }
 }
 
+//========================= Fonction our separer les emails valides par domaine =================
 
-// Fonction our séparer les emails valides par domaine 
 function separerEmailsParDomaine($fichier) {
     $emails = lire_emails($fichier);
     $emails_valides = array_keys($emails['valides']);
