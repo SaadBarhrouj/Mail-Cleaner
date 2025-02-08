@@ -38,17 +38,33 @@ function lire_emails($fichier) {
     ];
 }
 
-// Ajouter un email au fichier correspondant
+// Fonction pour verifier si un email existe dans la liste des emails valides
+function email_exist($newEmail, $file) {
+    $emails = lire_emails($file);
+    $emails_valides = array_keys($emails['valides']);
+    foreach ($emails_valides as $email) {
+        if ($email == $newEmail) {
+            return true;
+        }
+    }
+    return false;
+}
 
+// Fonction pour ajouter un email au fichier correspondant
 function ajouter_email($email) {
     if (validateEmail_2($email)) {
-        file_put_contents("../data/Emails.txt", "\n" . $email, FILE_APPEND);
-        echo "<p class='success'>Adresse email ajoutée dans Emails.txt !</p>";
+        if (email_exist($email, "../data/Emails.txt")) {
+            echo "<p class='error'>Adresse email déjà existante.</p>";
+        } else {
+            file_put_contents("../data/Emails.txt", "\n" . $email, FILE_APPEND);
+            echo "<p class='success'>Adresse email ajoutée dans Emails.txt !</p>";
+        }
     } else {
-        file_put_contents("../data/AdressesEmailsNonValides.txt", "\n" . $email , FILE_APPEND);
+        file_put_contents("../data/AdressesEmailsNonValides.txt", "\n" . $email, FILE_APPEND);
         echo "<p class='error'>Adresse email invalide. Ajoutée dans AdressesEmailsNonValides.txt.</p>";
     }
 }
+
 
 // Fonction our séparer les emails valides par domaine 
 function separerEmailsParDomaine($fichier) {
@@ -62,12 +78,9 @@ function separerEmailsParDomaine($fichier) {
     }
 
     foreach ($domainEmails as $domain => $emails) {
-        $filename = "../data/$domain.txt";
+        $filename = "../data/domains/$domain.txt";
         file_put_contents($filename, implode(PHP_EOL, $emails));
     }
 }
-
-$fichier = "../data/Emails.txt";
-separerEmailsParDomaine($fichier);
 
 ?>

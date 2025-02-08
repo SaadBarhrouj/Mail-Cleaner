@@ -49,7 +49,7 @@ margin-bottom: 1.875em;
 }
 
 .card {
-width: 17.25em;
+width: 12.25em;
 box-shadow: 0 5px 25px rgba(1 1 1 /15%);
 border-radius: 0.625em;
 padding: 1.5625em;
@@ -90,8 +90,13 @@ margin: 0.625em;
 }
 th, td {
     padding: 10px;
-    border: 1px solid var(--accent-color);
+    border: 3px solid var(--accent-color);
     text-align: left;
+}
+
+thead{
+    background-color: var(--accent-color);
+    color: var(--white-text-color);
 }
 
 
@@ -181,5 +186,35 @@ th, td {
     font-weight: bold;
     margin-top: 10px;
     text-align: center;
+
+}
+/*liste des domaines page */
+.domains{
+    width: 100%;
+    text-align: center;
+display: flex;
+justify-content: center;}
+  .domains ul{
+   list-style: none;   
+}
+
+.domains ul li {
+    width: 200px;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    background: var(--accent-color);
+    font-size: 16px;
+    cursor: pointer;
+
+}
+.domains li a {
+text-decoration: none;
+color: white;
+
+}
+.domains ul li:hover{
+    background-color: var(--primary-color);
 
 }

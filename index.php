@@ -43,8 +43,17 @@
         <h3>Afficher les Emails Vérifiés</h3>
         <p>Voir toutes les adresses emails vérifiées et leur fréquence d'utilisation.</p>
     </div>
+    
 </div>
-
+<div class="card">
+            <div class="icon">
+                <a href="templates/liste_domaines.php"><i class="fa fa-eye"></i></a>
+            </div>
+            <div class="info">
+                <h3>Afficher les Emails par Domaine</h3>
+                <p>Voir toutes les adresses emails validées, triées par domaine, et leur fréquence d'utilisation.</p>
+            </div>
+        </div>
 
         </div>
     </section>
