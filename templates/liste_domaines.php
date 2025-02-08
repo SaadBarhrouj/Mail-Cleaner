@@ -27,7 +27,7 @@ foreach ($domain_files as $file) {
        <div class="domains">
        <ul>
             <?php foreach ($domainEmails as $domain => $emails) : ?>
-            <li><a href="afficher_emails.php?domain=<?php echo urlencode($domain); ?>"><?php echo htmlspecialchars($domain); ?></a></li>
+            <li><a href="afficher_emails_par_domaine.php?domain=<?php echo urlencode($domain); ?>"><?php echo htmlspecialchars($domain); ?></a></li>
             <?php endforeach; ?>
         </ul>
        </div>

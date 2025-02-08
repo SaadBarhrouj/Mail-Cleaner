@@ -1,15 +1,14 @@
 <?php
 include '../includes/functions.php';
-
 $domain = $_GET['domain'];
 $filename = "../data/domains/$domain.txt";
-$emails_du_domaine = file_exists($filename) ? file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
-
+$emails_du_domaine =  file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ;
 $emails = lire_emails('../data/Emails.txt');
 $emails_valides = $emails['valides'];
 ?>
+
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Emails pour <?php echo $domain; ?></title>
