@@ -1,13 +1,16 @@
 <?php
-// Methode 1
+
+// Méthode  1 de validation d'email 
+
 function validateEmail($email) {
     $pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
     return preg_match($pattern, $email);
 }
 
-// Methode 2
+// Méthode  2 de validation d'email 
+
 function validateEmail_2($email) {
-    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
 // Lire les emails depuis un fichier et les valider
@@ -36,16 +39,18 @@ function lire_emails($fichier) {
 }
 
 // Ajouter un email au fichier correspondant
+
 function ajouter_email($email) {
     if (validateEmail_2($email)) {
-        file_put_contents("../data/Emails.txt", "\n" . $email . "\n", FILE_APPEND);
+        file_put_contents("../data/Emails.txt", "\n" . $email, FILE_APPEND);
         echo "<p class='success'>Adresse email ajoutée dans Emails.txt !</p>";
     } else {
-        file_put_contents("../data/AdressesEmailsNonValides.txt", "\n" . $email . "\n", FILE_APPEND);
+        file_put_contents("../data/AdressesEmailsNonValides.txt", "\n" . $email , FILE_APPEND);
         echo "<p class='error'>Adresse email invalide. Ajoutée dans AdressesEmailsNonValides.txt.</p>";
     }
 }
 
+// Fonction our séparer les emails valides par domaine 
 function separerEmailsParDomaine($fichier) {
     $emails = lire_emails($fichier);
     $emails_valides = array_keys($emails['valides']);
@@ -60,12 +65,9 @@ function separerEmailsParDomaine($fichier) {
         $filename = "../data/$domain.txt";
         file_put_contents($filename, implode(PHP_EOL, $emails));
     }
-
-    echo "Les emails valides ont été séparés par domaine et stockés dans des fichiers distincts.";
 }
 
-// Exemple d'utilisation de la fonction principale
 $fichier = "../data/Emails.txt";
 separerEmailsParDomaine($fichier);
-?>
+
 ?>
