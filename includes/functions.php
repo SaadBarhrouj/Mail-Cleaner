@@ -45,4 +45,27 @@ function ajouter_email($email) {
         echo "<p class='error'>Adresse email invalide. Ajoutée dans AdressesEmailsNonValides.txt.</p>";
     }
 }
+
+function separerEmailsParDomaine($fichier) {
+    $emails = lire_emails($fichier);
+    $emails_valides = array_keys($emails['valides']);
+    $domainEmails = [];
+
+    foreach ($emails_valides as $email) {
+        $domain = substr(strrchr($email, "@"), 1);
+        $domainEmails[$domain][] = $email;
+    }
+
+    foreach ($domainEmails as $domain => $emails) {
+        $filename = "../data/$domain.txt";
+        file_put_contents($filename, implode(PHP_EOL, $emails));
+    }
+
+    echo "Les emails valides ont été séparés par domaine et stockés dans des fichiers distincts.";
+}
+
+// Exemple d'utilisation de la fonction principale
+$fichier = "../data/Emails.txt";
+separerEmailsParDomaine($fichier);
+?>
 ?>
