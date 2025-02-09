@@ -18,7 +18,6 @@ function validateEmail_2($email) {
 function lire_emails($fichier) {
     $emails_valides = [];
     $emails_non_valides = [];
-    $all_lines = [];
 
     if (file_exists($fichier)) {
         $lines = file($fichier, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -30,51 +29,53 @@ function lire_emails($fichier) {
                 } else {
                     $emails_non_valides[] = $email;
                 }
-                $all_lines[] = $email;
             }
         }
     }
 
-    file_put_contents($fichier, implode(PHP_EOL, $emails_valides));
-
-    file_put_contents("../data/AdressesEmailsNonValides.txt", implode(PHP_EOL, $emails_non_valides));
-
     return [
         'valides' => array_count_values($emails_valides),
-        'non_valides' => array_unique($emails_non_valides)
+        'non_valides' => array_count_values($emails_non_valides)
     ];
 }
 
-//========================= Fonction pour verifier si un email existe dans la liste des emails valides =================
+//========================= Fonction pour vérifier si un email existe dans la liste des emails valides =================
 
-function email_exist($newEmail, $file) {
+function email_valide_exist($newEmail, $file) {
     $emails = lire_emails($file);
     $emails_valides = array_keys($emails['valides']);
-    foreach ($emails_valides as $email) {
-        if ($email == $newEmail) {
-            return true;
-        }
+    return in_array($newEmail, $emails_valides);
+}
+
+//========================= Fonction pour vérifier si un email non valide existe déjà dans la liste des emails non valides =================
+
+function email_non_valide_exist($email, $file) {
+    if (file_exists($file)) {
+        $lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        return in_array($email, $lines);
     }
     return false;
 }
 
 //========================= Fonction pour ajouter un email au fichier correspondant =================
 
-function ajouter_email($email) {
+function ajouter_email($email, $valid_file, $invalid_file) {
     if (validateEmail_2($email)) {
-        if (email_exist($email, "../data/Emails.txt")) {
+        if (email_valide_exist($email, $valid_file)) {
             echo "<p class='error'>Adresse email déjà existante.</p>";
         } else {
-            file_put_contents("../data/Emails.txt", "\n" . $email, FILE_APPEND);
+            file_put_contents($valid_file, "\n" . $email, FILE_APPEND);
             echo "<p class='success'>Adresse email ajoutée dans Emails.txt !</p>";
         }
     } else {
-        file_put_contents("../data/AdressesEmailsNonValides.txt", "\n" . $email, FILE_APPEND);
-        echo "<p class='error'>Adresse email invalide. Ajoutée dans AdressesEmailsNonValides.txt.</p>";
+        if (!email_non_valide_exist($email, $invalid_file)) {
+            file_put_contents($invalid_file, "\n" . $email, FILE_APPEND);
+            echo "<p class='error'>Adresse email invalide. Ajoutée dans AdressesEmailsNonValides.txt.</p>";
+        }
     }
 }
 
-//========================= Fonction our separer les emails valides par domaine =================
+//========================= Fonction pour séparer les emails valides par domaine =================
 
 function separerEmailsParDomaine($fichier) {
     $emails = lire_emails($fichier);
