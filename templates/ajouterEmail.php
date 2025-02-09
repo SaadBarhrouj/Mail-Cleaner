@@ -1,3 +1,8 @@
+<?php
+include '../includes/config.php';  
+include '../includes/functions.php'; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +16,10 @@
         <a href="../index.php" class="return-button"><i class="fa fa-arrow-left"></i> Retour</a>
         <h1 class="title">Ajouter Email</h1>
         <?php
-        include '../includes/functions.php';
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = $_POST["email"];
-            ajouter_email($email);
+            ajouter_email($email, valid_file, invalid_file); 
         }
         ?>
         <div class="form">

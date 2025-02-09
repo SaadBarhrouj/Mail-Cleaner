@@ -1,10 +1,11 @@
 <?php
 
 include '../includes/functions.php';
-$fichier = "../data/Emails.txt";
-separerEmailsParDomaine($fichier);
+include '../includes/config.php';
 
-$domain_files = glob('../data/domains/*.txt');
+separerEmailsParDomaine(valid_file);
+
+$domain_files = glob(domain_folder . '*.txt');
 $domainEmails = [];
 foreach ($domain_files as $file) {
     $domain = basename($file, '.txt');
