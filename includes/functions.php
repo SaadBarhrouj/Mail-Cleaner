@@ -64,7 +64,8 @@ function ajouter_email($email, $valid_file, $invalid_file) {
         if (email_valide_exist($email, $valid_file)) {
             echo "<p class='error'>Adresse email déjà existante.</p>";
         } else {
-            file_put_contents($valid_file, "\n" . $email, FILE_APPEND);
+            file_put_contents($valid_file, PHP_EOL . $email . PHP_EOL, FILE_APPEND);
+
             echo "<p class='success'>Adresse email ajoutée dans Emails.txt !</p>";
         }
     } else {
