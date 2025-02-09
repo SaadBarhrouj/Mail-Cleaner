@@ -27,7 +27,7 @@ sort($emails_uniques_valides);
 file_put_contents(emailsT_file, implode(PHP_EOL, $emails_uniques_valides));
 
 // Si on souhaite supprimer du fichier aussi les adresses non valides
-file_put_contents(valid_file, implode(PHP_EOL, $emails_uniques_valides));
+//file_put_contents(valid_file, implode(PHP_EOL, $emails_uniques_valides));
 
 // Lire les emails triés depuis EmailsT.txt
 $emailsT = file(emailsT_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
