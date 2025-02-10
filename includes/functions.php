@@ -10,7 +10,7 @@ function validateEmail($email) {
 //========================= Methode 2 de validation d'email ================================
 
 function validateEmail_2($email) {
-    return filter_var($email, FILTER_VALIDATE_EMAIL);
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
 }
 
 //========================= Lire les emails depuis un fichier et les valider =================
@@ -31,6 +31,8 @@ function lire_emails($fichier) {
                 }
             }
         }
+        $emails_valides_string = implode(PHP_EOL, $emails_valides);
+        file_put_contents($fichier, $emails_valides_string);
     }
 
     return [
@@ -38,6 +40,7 @@ function lire_emails($fichier) {
         'non_valides' => array_count_values($emails_non_valides)
     ];
 }
+
 
 //========================= Fonction pour vérifier si un email existe dans la liste des emails valides =================
 
