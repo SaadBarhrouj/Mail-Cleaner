@@ -28,6 +28,10 @@ file_put_contents(emailsT_file, implode(PHP_EOL, $emails_uniques_valides));
     <title>Liste des Emails Valides</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../includes/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../includes/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../includes/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../includes/site.webmanifest">
 </head>
 <body>
     <section class="cards">
