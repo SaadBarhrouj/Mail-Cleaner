@@ -19,9 +19,6 @@ $emails_uniques_valides = array_unique($emails_uniques_valides);
 sort($emails_uniques_valides);
 
 file_put_contents(emailsT_file, implode(PHP_EOL, $emails_uniques_valides));
-
-// Si on souhaite supprimer du fichier aussi les adresses non valides
-//file_put_contents(valid_file, implode(PHP_EOL, $emails_uniques_valides));
 ?>
 
 <!DOCTYPE html>
