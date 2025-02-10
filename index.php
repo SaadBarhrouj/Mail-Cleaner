@@ -10,6 +10,8 @@
 </head>
 
 <body>
+<a href="home.php" class="return-button"><i class="fa fa-arrow-left"></i> Retour</a>
+
     <section class="cards">
         <h2 class="title">Gestion des Emails</h2>
         <div class="content">
