@@ -39,7 +39,59 @@ margin-bottom: 1.875em;
 
 }
 
+
   /* home page  */
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 60px 100px;
+    width: 90%;  
+}
+
+.container .info,.container .image{
+    margin: 30px  40px;
+    padding: 20px ;
+}
+
+
+
+.container .image img{
+    width:600px;
+    height: auto;
+}
+
+.container h1{
+    display: flex;
+    color: var(--accent-color);
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.container p{
+    color: var(--black-text-color);
+    font-size: 1.1em;
+    font-weight: 400;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    line-height: 30px;
+}
+
+.container .start-btn{
+    text-decoration: none;
+    width: 100px;
+    padding: 10px 20px;
+    text-align: center;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top:30px ;
+}
+
+  /*Cards page  */
 
 
 .content {
@@ -211,6 +263,7 @@ tbody:hover > :not(:hover) {
 
 }
 /*liste des domaines page */
+
 .domains{
     width: 100%;
     text-align: center;
@@ -240,55 +293,3 @@ color: white;
     background-color: var(--primary-color);
 
 }
-
-
-
-.container{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 80px;
-    width: 90%;
-
-   
-}
-.container .info,.container .image{
-    margin: 30px  40px;
-    padding: 20px ;
-}
-.container .info {
-    width: 70%;
-}
-
-.container .image img{
-    width:600px;
-    height: auto;
-}
-
-.container h1{
-    display: flex;
-    color: var(--accent-color);
-    font-size: 2em;
-    font-weight: 800;
-}
-.container p{
-    color: var(--black-text-color);
-    font-size: 1.1em;
-    font-weight: 400;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
-    line-height: 30px;
-}
-.container .start-btn{
-    text-decoration: none;
-    width: 100px;
-    padding: 10px 20px;
-    text-align: center;
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top:30px ;
-}
-
