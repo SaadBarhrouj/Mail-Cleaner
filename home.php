@@ -12,6 +12,8 @@
     <link rel="manifest" href="includes/site.webmanifest">
 </head>
 <body>
+<a href="home.php" class="logo"><img src="images/logo.png" alt=""></a>
+
     <div class="container">
             <div class="info">
                 <h1 >Bienvenue sur MailCleaner</h1> 

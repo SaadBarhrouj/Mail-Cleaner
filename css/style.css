@@ -41,12 +41,21 @@ margin-bottom: 1.875em;
 
 
   /* home page  */
+  .logo img{
+    width: 200px;
+  }
+  .logo{
+    width: 30px;
+    position: absolute;
+    top: 30px;
+    left: 60px;
+  }
 
 .container{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 60px 100px;
+    margin: 100px 40px;
     width: 90%;  
 }
 
