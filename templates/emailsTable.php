@@ -35,7 +35,8 @@ file_put_contents(emailsT_file, implode(PHP_EOL, $emails_uniques_valides));
 </head>
 <body>
     <section class="cards">
-        <a href="../index.php" class="return-button"><i class="fa fa-arrow-left"></i> Retour</a>
+    <a href="../home.php" class="logo"><img src="../images/logo.png" alt=""></a>
+    <a href="../home.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
         <h1 class="title">Liste des Emails Valides</h1>
         <table>
             <thead>

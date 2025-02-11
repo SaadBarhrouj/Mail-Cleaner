@@ -36,8 +36,10 @@ $emailsT = file(emailsT_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     <link rel="manifest" href="../includes/site.webmanifest">
 </head>
 <body>
+
+<a href="../home.php" class="logo"><img src="../images/logo.png" alt=""></a>
+<a href="../home.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
     <section class="cards">
-        <a href="../index.php" class="return-button"><i class="fa fa-arrow-left"></i> Retour</a>
         <h1 class="title">Liste des Emails Triés</h1>
         <table>
             <thead>

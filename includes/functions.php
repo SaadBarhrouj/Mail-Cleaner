@@ -98,7 +98,7 @@ function separerEmailsParDomaine($fichier) {
 }
 
 
-//=========================================
+//=========== Fonction pour verifier les emails et les ajouter dans un fichier ============
 
 function email_verify($file,$file_verified_emails){
     $emails_verifies = [];
@@ -132,10 +132,31 @@ function email_verify($file,$file_verified_emails){
         // Print the data out onto the page.
 
 
-                if($data['deliverability']==="DELIVERABLE"){
-                    file_put_contents($file_verified_emails, "\n" . $email, FILE_APPEND);
-                }
+        if (isset($data) && isset($data['deliverability']) && $data['deliverability'] === "DELIVERABLE") {
+            file_put_contents($file_verified_emails, "\n" . $email, FILE_APPEND);
         }
+        
+        }
+}
+
+
+
+//=================== Fonction pour lire les emails ================
+
+function lire_emails_simple($fichier) {
+    $emails = [];
+
+    if (file_exists($fichier)) {
+        $lines = file($fichier, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        foreach ($lines as $line) {
+            $line_emails = preg_split('/\s+|,|;/', $line);
+            foreach ($line_emails as $email) {
+                $emails[] = $email;
+            }
+        }
+    }
+
+    return $emails;
 }
 
 

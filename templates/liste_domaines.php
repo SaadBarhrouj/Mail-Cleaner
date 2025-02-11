@@ -27,7 +27,8 @@ foreach ($domain_files as $file) {
 </head>
 <body>
     <section class="cards">
-    <a href="../index.php" class="return-button"><i class="fa fa-arrow-left"></i> Retour</a>
+    <a href="../home.php" class="logo"><img src="../images/logo.png" alt=""></a>
+    <a href="../home.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
         <h1 class="title">Liste des Domaines</h1>
        <div class="domains">
        <ul>

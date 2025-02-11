@@ -24,8 +24,9 @@ $emails_valides = $emails['valides'];
     <link rel="manifest" href="../includes/site.webmanifest">
 </head>
 <body>
+<a href="../home.php" class="logo"><img src="../images/logo.png" alt=""></a>
+<a href="liste_domaines.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
     <section class="cards">
-        <a href="liste_domaines.php" class="return-button"><i class="fa fa-arrow-left"></i> Retour</a>
         <h1 class="title">Emails pour le domaine: <?php echo htmlspecialchars($domain); ?></h1>
         <table>
             <thead>

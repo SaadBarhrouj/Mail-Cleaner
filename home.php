@@ -12,20 +12,21 @@
     <link rel="manifest" href="includes/site.webmanifest">
 </head>
 <body>
-<a href="home.php" class="logo"><img src="images/logo.png" alt=""></a>
+    <a href="home.php" class="logo"><img src="images/logo.png" alt=""></a>
 
     <div class="container">
-            <div class="info">
-                <h1 >Bienvenue sur MailCleaner</h1> 
-                <p>Votre outil ultime pour trier et gérer vos emails.
-                    Avec notre technologie avancée, vous pouvez facilement filtrer les
-                     emails valides de ceux qui ne le sont pas.
-                </p>
-                <a href="index.php" class="start-btn"> Commencer <i class="fa fa-arrow-right"></i></a>
-            </div >
-            <div class="image">
+        <div class="info">
+            <h1>Bienvenue sur MailCleaner</h1> 
+            <p>Votre plateforme permet de trier et gérer vos emails en filtrant
+                 les valides des invalides, lire les emails depuis un fichier et 
+                 vérifier leur existence réelle. Elle facilite également l'ajout de nouveaux emails 
+                 après vérification de leur validité.
+            </p>
+            <a href="index.php" class="start-btn">Commencer <i class="fa fa-arrow-right"></i></a>
+        </div>
+        <div class="image">
             <img src="images/image_1.png" alt="Image Explicative">
-            </div>
+        </div>
     </div>
 </body>
 </html>
