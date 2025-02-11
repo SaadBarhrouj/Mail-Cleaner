@@ -19,6 +19,7 @@ $emails_uniques_valides = array_unique($emails_uniques_valides);
 sort($emails_uniques_valides);
 
 file_put_contents(emailsT_file, implode(PHP_EOL, $emails_uniques_valides));
+
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +47,7 @@ file_put_contents(emailsT_file, implode(PHP_EOL, $emails_uniques_valides));
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($emails_uniques_valides as $email) : ?>
+                <?php foreach (array_keys($emails_valides)  as $email) : ?>
                 <tr>
                     <td><?php echo $email; ?></td>
                     <td><?php echo $emails_valides[$email]; ?></td>

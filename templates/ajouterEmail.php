@@ -29,7 +29,7 @@ include '../includes/functions.php';
         ?>
         <div class="form">
             <form action="" method="post">
-                <input type="email" id="email" name="email" placeholder="Entrez un email" required>
+                <input type="email" id="email" name="email"  placeholder="Entrez un email" required>
                 <button type="submit">Ajouter</button>
             </form>
         </div>

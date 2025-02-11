@@ -50,7 +50,7 @@ function email_valide_exist($newEmail, $file) {
     return in_array($newEmail, $emails_valides);
 }
 
-//========================= Fonction pour vérifier si un email non valide existe déjà dans la liste des emails non valides =================
+//========================= Fonction pour verifier si un email non valide existe déjà dans la liste des emails non valides =================
 
 function email_non_valide_exist($email, $file) {
     if (file_exists($file)) {
@@ -138,8 +138,6 @@ function email_verify($file,$file_verified_emails){
         
         }
 }
-
-
 
 //=================== Fonction pour lire les emails ================
 
