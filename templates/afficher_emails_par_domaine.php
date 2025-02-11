@@ -1,24 +1,13 @@
 <?php
+
 include '../includes/config.php';
-include '../includes/functions.php';
+include '../includes/functions.php'; 
 
+$domain = $_GET['domain'];
+$filename = domain_folder . "$domain.txt";
+$emails_du_domaine = file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $emails = lire_emails(valid_file);
-
 $emails_valides = $emails['valides'];
-$emails_non_valides = $emails['non_valides'];
-
-foreach (array_keys($emails_non_valides) as $email) {
-    if (!email_non_valide_exist($email, invalid_file)) {
-        file_put_contents(invalid_file, $email . PHP_EOL, FILE_APPEND);
-    }
-}
-
-$emails_uniques_valides = array_keys($emails_valides);
-$emails_uniques_valides = array_unique($emails_uniques_valides);
-
-sort($emails_uniques_valides);
-
-file_put_contents(emailsT_file, implode(PHP_EOL, $emails_uniques_valides));
 
 ?>
 
@@ -26,7 +15,7 @@ file_put_contents(emailsT_file, implode(PHP_EOL, $emails_uniques_valides));
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Liste des Emails Valides</title>
+    <title>Emails pour <?php echo htmlspecialchars($domain); ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../includes/favicons/apple-touch-icon.png">
@@ -35,10 +24,10 @@ file_put_contents(emailsT_file, implode(PHP_EOL, $emails_uniques_valides));
     <link rel="manifest" href="../includes/site.webmanifest">
 </head>
 <body>
+<a href="../home.php" class="logo"><img src="../images/logo.png" alt=""></a>
+<a href="liste_domaines.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
     <section class="cards">
-    <a href="../home.php" class="logo"><img src="../images/logo.png" alt=""></a>
-    <a href="../home.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
-        <h1 class="title">Liste des Emails Valides</h1>
+        <h1 class="title">Emails pour le domaine: <?php echo htmlspecialchars($domain); ?></h1>
         <table>
             <thead>
                 <tr>
@@ -47,9 +36,9 @@ file_put_contents(emailsT_file, implode(PHP_EOL, $emails_uniques_valides));
                 </tr>
             </thead>
             <tbody>
-                <?php foreach (array_keys($emails_valides)  as $email) : ?>
+                <?php foreach ($emails_du_domaine as $email) : ?>
                 <tr>
-                    <td><?php echo $email; ?></td>
+                    <td><?php echo htmlspecialchars($email); ?></td>
                     <td><?php echo $emails_valides[$email]; ?></td>
                 </tr>
                 <?php endforeach; ?>

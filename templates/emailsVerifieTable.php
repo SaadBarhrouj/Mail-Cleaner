@@ -2,24 +2,12 @@
 include '../includes/config.php';
 include '../includes/functions.php';
 
-$emails = lire_emails(valid_file);
+email_verify(valid_file, invalid_file);
 
-$emails_valides = $emails['valides'];
-$emails_non_valides = $emails['non_valides'];
+// Lire les emails depuis le fichier vérifié
+$emails = lire_emails_simple(verified_file);
 
-foreach (array_keys($emails_non_valides) as $email) {
-    if (!email_non_valide_exist($email, invalid_file)) {
-        file_put_contents(invalid_file, $email . PHP_EOL, FILE_APPEND);
-    }
-}
-
-$emails_uniques_valides = array_keys($emails_valides);
-$emails_uniques_valides = array_unique($emails_uniques_valides);
-
-sort($emails_uniques_valides);
-
-file_put_contents(emailsT_file, implode(PHP_EOL, $emails_uniques_valides));
-
+// Afficher les emails dans un tableau
 ?>
 
 <!DOCTYPE html>
@@ -36,21 +24,19 @@ file_put_contents(emailsT_file, implode(PHP_EOL, $emails_uniques_valides));
 </head>
 <body>
     <section class="cards">
-    <a href="../home.php" class="logo"><img src="../images/logo.png" alt=""></a>
-    <a href="../home.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
+        <a href="../home.php" class="logo"><img src="../images/logo.png" alt=""></a>
+        <a href="../home.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
         <h1 class="title">Liste des Emails Valides</h1>
         <table>
             <thead>
                 <tr>
                     <th>Adresse Email</th>
-                    <th>Fréquence</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach (array_keys($emails_valides)  as $email) : ?>
+                <?php foreach ($emails as $email) : ?>
                 <tr>
                     <td><?php echo $email; ?></td>
-                    <td><?php echo $emails_valides[$email]; ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
