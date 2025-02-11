@@ -133,7 +133,9 @@ function email_verify($file,$file_verified_emails){
 
 
         if (isset($data) && isset($data['deliverability']) && $data['deliverability'] === "DELIVERABLE") {
-            file_put_contents($file_verified_emails, "\n" . $email, FILE_APPEND);
+            if (!email_non_valide_exist($email, $file_verified_emails)) {
+                file_put_contents($file_verified_emails, "\n" . $email, FILE_APPEND);
+            }
         }
         
         }

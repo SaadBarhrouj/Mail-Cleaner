@@ -2,19 +2,17 @@
 include '../includes/config.php';
 include '../includes/functions.php';
 
-email_verify(valid_file, invalid_file);
+email_verify(valid_file,verified_file);
 
 // Lire les emails depuis le fichier vérifié
 $emails = lire_emails_simple(verified_file);
-
-// Afficher les emails dans un tableau
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Liste des Emails Valides</title>
+    <title>Liste des Emails verifie</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../includes/favicons/apple-touch-icon.png">
