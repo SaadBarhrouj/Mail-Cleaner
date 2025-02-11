@@ -69,28 +69,30 @@ margin-bottom: 1.875em;
 .container .image img{
     width:600px;
     height: auto;
+ 
 }
 
 .container h1{
     display: flex;
     color: var(--accent-color);
     font-size: 2em;
+    letter-spacing: 2px;
+
     font-weight: 800;
 }
 
 .container p{
     color: var(--black-text-color);
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: 400;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
+    margin-bottom: 35px;
+    letter-spacing: 2px;
     line-height: 30px;
 }
 
 .container .start-btn{
     text-decoration: none;
-    width: 100px;
-    padding: 10px 20px;
+    padding: 15px 20px;
     text-align: center;
     background-color: var(--accent-color);
     color: white;
@@ -98,6 +100,8 @@ margin-bottom: 1.875em;
     border-radius: 5px;
     cursor: pointer;
     margin-top:30px ;
+    letter-spacing: 1px;
+
 }
 
   /*Cards page  */
