@@ -12,7 +12,7 @@ $emails = lire_emails_simple(verified_file);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Liste des Emails verifie</title>
+    <title>Liste des Emails vérifiés</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../includes/favicons/apple-touch-icon.png">
@@ -24,7 +24,7 @@ $emails = lire_emails_simple(verified_file);
     <section class="cards">
         <a href="../home.php" class="logo"><img src="../images/logo.png" alt=""></a>
         <a href="../home.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
-        <h1 class="title">Liste des Emails Valides</h1>
+        <h1 class="title">Liste des Emails vérifiés</h1>
         <table>
             <thead>
                 <tr>

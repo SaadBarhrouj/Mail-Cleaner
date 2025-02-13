@@ -108,7 +108,7 @@ function email_verify($file,$file_verified_emails){
     foreach(  $emails_valides as $email){
         // Initialize cURL.
         $ch = curl_init();
-        $api_key="d04618536639472e9c8dce61713a7780";
+        $api_key="5aa9d58664484ef7a793720e10c07cf6";
 
         // Set the URL that you want to GET by using the CURLOPT_URL option.
         curl_setopt($ch, CURLOPT_URL, "https://emailvalidation.abstractapi.com/v1/?api_key=$api_key&email=$email");
