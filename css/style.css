@@ -88,9 +88,10 @@ section {
     line-height: 30px;
 }
 
-.container .start-btn {
+
+.container .start-btn ,.btn-download {
     text-decoration: none;
-    padding: 15px 20px;
+    padding: 10px 15px;
     text-align: center;
     background-color: var(--accent-color);
     color: white;
@@ -102,7 +103,9 @@ section {
     transition: 0.8s ease;
 }
 
-.container .start-btn:hover {
+
+
+.container .start-btn:hover  {
     background-color: var(--white-text-color);
     color: var(--accent-color);
     border: 2px solid var(--accent-color);
@@ -156,6 +159,7 @@ table {
     border-collapse: collapse;
     margin-bottom: 20px;
     transition: 0.8s ease;
+    margin-top: 20px;
 }
 
 th, td {
@@ -168,6 +172,7 @@ th, td {
 thead {
     background-color: var(--accent-color);
     color: var(--white-text-color);
+   
 }
 
 tr:hover {
@@ -231,7 +236,7 @@ tbody:hover > :not(:hover) {
     padding: 20px;
 }
 
-.form input[type="email"] {
+.form input[type="email"]{
     width: 380px;
     padding: 10px;
     border: 1px solid var(--accent-color);
@@ -243,6 +248,24 @@ tbody:hover > :not(:hover) {
 .form input[type="email"]:focus {
     border-color: var(--primary-color);
 }
+
+input[type=file] {
+    width: 365px;
+    color: var(--primary-color);
+    padding: 8px 12px;
+    background-color: var(--white-text-color);
+    border: 2px solid var(--accent-color);
+    background:linear-gradient(var(--secondary-color),var(--white-text-color));
+  }
+
+  input[type=file]::file-selector-button {
+    margin-right: 8px;
+    border: none;
+    background: var(--primary-color);
+    padding: 8px 12px;
+    color: var(--white-text-color);
+    cursor: pointer;
+  }
 
 .form button {
     width: 400px;
@@ -305,3 +328,5 @@ tbody:hover > :not(:hover) {
 .domains ul li:hover {
     background-color: var(--primary-color);
 }
+
+

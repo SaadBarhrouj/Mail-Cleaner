@@ -4,7 +4,6 @@ include '../includes/functions.php';
 
 email_verify(valid_file,verified_file);
 
-// Lire les emails depuis le fichier vérifié
 $emails = lire_emails_simple(verified_file);
 ?>
 
@@ -23,8 +22,11 @@ $emails = lire_emails_simple(verified_file);
 <body>
     <section class="cards">
         <a href="../home.php" class="logo"><img src="../images/logo.png" alt=""></a>
-        <a href="../home.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
+        <a href="../index.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
         <h1 class="title">Liste des Emails vérifiés</h1>
+        <a href="<?php echo verified_file?>" class="btn-download" download="emails_verifies.txt">
+        Télécharger les résultats de la table<i class="fa fa-download"></i> 
+       </a>
         <table>
             <thead>
                 <tr>

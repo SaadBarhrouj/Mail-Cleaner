@@ -38,9 +38,12 @@ $emailsT = file(emailsT_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 <body>
 
 <a href="../home.php" class="logo"><img src="../images/logo.png" alt=""></a>
-<a href="../home.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
+<a href="../index.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
     <section class="cards">
         <h1 class="title">Liste des Emails Triés</h1>
+        <a href="<?php echo emailsT_file?>" class="btn-download" download="emails_valides_tries.txt">
+        Télécharger les résultats de la table<i class="fa fa-download"></i> 
+       </a>
         <table>
             <thead>
                 <tr>

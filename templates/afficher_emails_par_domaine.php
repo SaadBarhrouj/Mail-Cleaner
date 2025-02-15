@@ -28,6 +28,9 @@ $emails_valides = $emails['valides'];
 <a href="liste_domaines.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
     <section class="cards">
         <h1 class="title">Emails pour le domaine: <?php echo htmlspecialchars($domain); ?></h1>
+        <a href="<?php echo $filename; ?>" download class="btn-download">
+            <button> Télécharger les résultats de la table</button>
+        </a>
         <table>
             <thead>
                 <tr>

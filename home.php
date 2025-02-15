@@ -22,7 +22,7 @@
                  vérifier leur existence réelle. Elle facilite également l'ajout de nouveaux emails 
                  après vérification de leur validité.
             </p>
-            <a href="index.php" class="start-btn">Commencer <i class="fa fa-arrow-right"></i></a>
+            <a href="importer_fichier.php" class="start-btn">Commencer <i class="fa fa-arrow-right"></i></a>
         </div>
         <div class="image">
             <img src="images/image_1.png" alt="Image Explicative">

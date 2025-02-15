@@ -17,7 +17,7 @@ include '../includes/functions.php';
 </head>
 <body>
 <a href="../home.php" class="logo"><img src="../images/logo.png" alt=""></a>
-<a href="../home.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
+<a href="../index.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
     <section class="cards">
         <h1 class="title">Ajouter Email</h1>
         <?php

@@ -79,23 +79,7 @@ function ajouter_email($email, $valid_file, $invalid_file) {
     }
 }
 
-//========================= Fonction pour séparer les emails valides par domaine =================
 
-function separerEmailsParDomaine($fichier) {
-    $emails = lire_emails($fichier);
-    $emails_valides = array_keys($emails['valides']);
-    $domainEmails = [];
-
-    foreach ($emails_valides as $email) {
-        $domain = substr(strrchr($email, "@"), 1);
-        $domainEmails[$domain][] = $email;
-    }
-
-    foreach ($domainEmails as $domain => $emails) {
-        $filename = "../data/domains/$domain.txt";
-        file_put_contents($filename, implode(PHP_EOL, $emails));
-    }
-}
 
 
 //=========== Fonction pour verifier les emails et les ajouter dans un fichier ============
@@ -160,4 +144,85 @@ function lire_emails_simple($fichier) {
 }
 
 
+// ========  Fonction pour supprimer dossier deja existe 
+ 
+function deleteFolder($folder) {
+    if (!is_dir($folder)) {
+        return;
+    }
+    
+    $files = array_diff(scandir($folder), ['.', '..']);
+    foreach ($files as $file) {
+        $filePath = $folder . DIRECTORY_SEPARATOR . $file;
+        is_dir($filePath) ? deleteFolder($filePath) : unlink($filePath);
+    }
+    rmdir($folder);
+}
+
+
+//========================= Fonction pour séparer les emails valides par domaine =================
+function separerEmailsParDomaine($fichier) {
+    $emails = lire_emails($fichier);
+    $emails_valides = array_keys($emails['valides']);
+    $domainEmails = [];
+
+    // Supprimer le dossier domains s'il existe
+    $domainsDir = '../data/domains/';
+    if (is_dir($domainsDir)) {
+        deleteFolder($domainsDir);
+    }
+
+    // Recréer le dossier domains
+    if (!mkdir($domainsDir, 0777, true) && !is_dir($domainsDir)) {
+        return "Erreur lors de la création du dossier domains.";
+    }
+
+    foreach ($emails_valides as $email) {
+        $domain = substr(strrchr($email, "@"), 1);
+        $domainEmails[$domain][] = $email;
+    }
+
+    foreach ($domainEmails as $domain => $emails) {
+        $filename = $domainsDir . $domain . '.txt';
+        file_put_contents($filename, implode(PHP_EOL, $emails));
+    }
+}
+
+
+//=========================================================
+
+function handleFileUpload($file) {
+    $uploadDir = 'data/';
+    $uploadFile = $uploadDir . 'Emails.txt';
+
+    // Supprimer le dossier 'data' s'il existe
+    if (is_dir($uploadDir)) {
+        deleteFolder($uploadDir);
+    }
+
+    // Recréer le dossier 'data'
+    if (!mkdir($uploadDir, 0777, true) && !is_dir($uploadDir)) {
+        return "<p class='error'>Erreur lors de la création du dossier data.</p>";
+    }
+
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        return "<p class='error'>Erreur lors de l'upload du fichier.</p>";
+    }
+
+    $filename = basename($file['name']);
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+    if (strtolower($extension) !== 'txt') {
+        return "<p class='error'>Extension non autorisée. Seuls les fichiers .txt sont acceptés.</p>";
+    }
+
+    if (move_uploaded_file($file['tmp_name'], $uploadFile)) {
+        return "<p class='success'>Le fichier a été téléchargé avec succès et sauvegardé sous le nom Emails.txt.</p>";
+    } else {
+        return "<p class='error'>Erreur lors du déplacement du fichier.</p>";
+    }
+}
+
+
 ?>
+

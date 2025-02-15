@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
 
+<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +12,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="includes/favicons/favicon-16x16.png">
     <link rel="manifest" href="includes/site.webmanifest">
 </head>
-
 <body>
-<a href="home.php" class="logo"><img src="images/logo.png" alt=""></a>
-<a href="home.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
-
-    <section class="cards">
+    <a href="home.php" class="logo"><img src="images/logo.png" alt=""></a>
+    <a href="home.php" class="return-button"> <i class="fa fa-arrow-right"></i></a>
+    <section class="cards" id="cardsSection">
         <h2 class="title">Gestion des Emails</h2>
         <div class="content">
             <div class="card">
@@ -71,6 +69,7 @@
             </div>
         </div>
     </section>
-</body>
 
+    <script src="js/script.js"></script>
+</body>
 </html>
