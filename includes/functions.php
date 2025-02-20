@@ -144,7 +144,7 @@ function lire_emails_simple($fichier) {
 }
 
 
-// ========  Fonction pour supprimer dossier deja existe 
+// ===============================  Fonction pour supprimer dossier deja existe  ==============================
  
 function deleteFolder($folder) {
     if (!is_dir($folder)) {
@@ -166,13 +166,11 @@ function separerEmailsParDomaine($fichier) {
     $emails_valides = array_keys($emails['valides']);
     $domainEmails = [];
 
-    // Supprimer le dossier domains s'il existe
     $domainsDir = '../data/domains/';
     if (is_dir($domainsDir)) {
         deleteFolder($domainsDir);
     }
 
-    // Recréer le dossier domains
     if (!mkdir($domainsDir, 0777, true) && !is_dir($domainsDir)) {
         return "Erreur lors de la création du dossier domains.";
     }

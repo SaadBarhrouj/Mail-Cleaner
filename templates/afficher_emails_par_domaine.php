@@ -17,7 +17,7 @@ $emails_valides = $emails['valides'];
     <meta charset="UTF-8">
     <title>Emails pour <?php echo htmlspecialchars($domain); ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../includes/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../includes/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../includes/favicons/favicon-16x16.png">
@@ -29,8 +29,7 @@ $emails_valides = $emails['valides'];
     <section class="cards">
         <h1 class="title">Emails pour le domaine: <?php echo htmlspecialchars($domain); ?></h1>
         <a href="<?php echo $filename; ?>" download class="btn-download">
-            <button> Télécharger les résultats de la table</button>
-        </a>
+           Télécharger les résultats de la table<i class="fa fa-download"></i> </a>
         <table>
             <thead>
                 <tr>

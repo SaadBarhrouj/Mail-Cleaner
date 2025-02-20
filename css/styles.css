@@ -329,4 +329,36 @@ input[type=file] {
     background-color: var(--primary-color);
 }
 
+/*pagination*/
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    background-color: var(--white-text-color);
+    border: 2px solid var(--accent-color);      
+    color:var(--accent-color);
+}
+.pagination a:hover{
+    background-color: var(--accent-color);
+    color: var(--white-text-color);
+}
+
+.pagination a.active {
+    background-color: var(--accent-color);
+    font-weight: bold;
+    color: var(--white-text-color);
+}
+
+.pagination span {
+    margin: 0 5px;
+    padding: 10px 15px;
+}
+
 
