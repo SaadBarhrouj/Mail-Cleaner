@@ -6,11 +6,9 @@ $message = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['userfile'])) {
     $result = handleFileUpload($_FILES['userfile']);
     
-    // Si la fonction renvoie un message d'erreur (avec la classe 'error')
     if (strpos($result, "<p class='error'>") !== false) {
-        $message = $result;  // Affiche l'erreur
+        $message = $result; 
     } else {
-        // Si pas d'erreur, redirige vers index.php
         header("Location: index.php");
         exit();
     }
