@@ -74,3 +74,5 @@ For any inquiries or feedback, you can reach me via:
 - **Email:** [Saad Barhrouj](saad.barhrouj@etu.uae.ac.ma) 📧
 - **LinkedIn:** [Saad Barhrouj](https://www.linkedin.com/in/saad-barhrouj-b37270295/) 💼
 - **GitHub:** [SaadBarhrouj](https://github.com/SaadBarhrouj) 🐙
+- **Portfolio :** [Live Portfolio](https://portfolio-saad-barhrouj.netlify.app/) 
+
