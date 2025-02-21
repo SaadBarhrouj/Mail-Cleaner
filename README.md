@@ -2,15 +2,19 @@
 # MailCleaner
 
 MailCleaner is a web platform that allows users to filter, manage, validate, and verify the validity of email addresses. The tool provides powerful features to import, check if an email actually exists, organize emails based on their validity, usage frequency, and domain, and allows users to download the results in text format.
+<hr>
 
 
 <div style="text-align: center;">
-    <img src="preview/1.preview.png" alt="Portfolio Preview" width="800" style="border: 2px solid #000; display: inline-block;">
-    <img src="preview/2.preview.png" alt="Portfolio Preview" width="400" style="border: 2px solid #000; display: inline-block;">
-    <img src="preview/3.preview.png" alt="Portfolio Preview" width="400" style="border: 2px solid #000; display: inline-block;">
-    <img src="preview/4.preview.png" alt="Portfolio Preview" width="400" style="border: 2px solid #000; display: inline-block;">
-    <img src="preview/5.preview.png" alt="Portfolio Preview" width="400" style="border: 2px solid #000; display: inline-block;">
-    
+    <img src="preview/1.preview.png" alt="Portfolio Preview" width="200" style="border: 2px solid #000; display: inline-block;">
+    <img src="preview/2.preview.png" alt="Portfolio Preview" width="200" style="border: 2px solid #000; display: inline-block;">
+    <img src="preview/3.preview.png" alt="Portfolio Preview" width="200" style="border: 2px solid #000; display: inline-block;">
+    <img src="preview/4.preview.png" alt="Portfolio Preview" width="200" style="border: 2px solid #000; display: inline-block;">
+    <hr>
+    <img src="preview/5.preview.png" alt="Portfolio Preview" width="200" style="border: 2px solid #000; display: inline-block;">
+    <img src="preview/6.preview.png" alt="Portfolio Preview" width="200" style="border: 2px solid #000; display: inline-block;">
+    <img src="preview/7.preview.png" alt="Portfolio Preview" width="200" style="border: 2px solid #000; display: inline-block;">
+    <img src="preview/8.preview.png" alt="Portfolio Preview" width="200" style="border: 2px solid #000; display: inline-block;">    
 </div>
 
 <hr>
